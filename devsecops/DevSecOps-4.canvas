@@ -1,0 +1,35 @@
+{
+	"nodes":[
+		{"id":"048a127cd610af04","type":"text","text":"## Authentication and Authorization\nReview the authentication and authorization code to ensure that access controls and user privileges are properly implemented.","x":2671,"y":50,"width":560,"height":232},
+		{"id":"c27b6664cb320fdc","type":"text","text":"# Configuration Hardening\n\n- Review and change the default application’s configuration\n- credentials and API keys are not hardcoded in the source code\n\t-  ==TruggleHog== which checks code in commit history, branches with regular expression\n\t- If any access token was spotted in the version control system (VCS) like in git or svn, the token should be rotate\n\t- using ==pre-commit== where it’s possible to define custom detection rules for sensitive information in the project repository","x":1140,"y":-546,"width":680,"height":426},
+		{"id":"5b691609320ef5fc","type":"text","text":"# Secure Code Review","x":1920,"y":-442,"width":480,"height":106},
+		{"id":"1a1e22ed30d766ef","type":"text","text":" Coding Stage","x":520,"y":-920,"width":580,"height":80},
+		{"id":"8eed00b5f4fac421","type":"text","text":"# Secure Build with SCA scanners\n-  a tool that automates identifying and tracking the open source and third-party software components used in a software application by identifying the software components being used and providing information on any known security vulnerabilities or licensing issues associated with those components\n- The scanner identified vulnerabilities by : comparing the version numbers of these components to known vulnerability databases, such as\n\t1. the National Vulnerability Database (NVD) \n\t2. the Common Vulnerabilities and Exposures (CVE) database\n##### when useful\n-  can be useful for ensuring that software applications are not using vulnerable or outdated software components\n-  ensure compliance with open source licensing requirements, as some licenses require that the source code of any modified components be made available.\n","x":480,"y":-640,"width":620,"height":753},
+		{"id":"65e934ce703d65f9","type":"text","text":"# secure libraries and dependencies\n- trusted and verified libraries and dependencies, and regularly update them\n- use  Software Composition Analysis (SCA)\n- package managers might have the capability to audit the dependencies of the software project\n- `npm audit` : audit the third-party libraries and dependencies mentioned in the package.json\n-  `npm audit fix` : possible to fix the known vulnerabilities if there is an available fix\n-  `composer audit`\n- It’s possible to fix the known vulnerabilities if there is an available fix you need to install the new version of the package\n","x":0,"y":-648,"width":444,"height":770},
+		{"id":"07673df36d76223c","type":"text","text":"# Overview\n- input validation, error checks and exceptions/errors handling\n- The OWASP Top Ten\n- The OWASP Mobile Top Ten\n-  SEI CERT Coding Standards (for C, C++, Java, Perl):\n- using a Linter like “DevSkim","x":-400,"y":-648,"width":360,"height":360,"color":"5"},
+		{"id":"b27a3712c69e21d2","type":"text","text":"## Secure coding practices:\nsuch as avoiding buffer overflows, injection attacks","x":2120,"y":-920,"width":476,"height":206},
+		{"id":"9ea2239d5a2b5c34","type":"text","text":"## Network security\nEnsure that network connections are established securely, encrypted, and use appropriate protocols to **prevent man-in-the-middle and eavesdropping attacks.**","x":1480,"y":-920,"width":572,"height":220},
+		{"id":"fa79dc7bea9cf9fd","type":"text","text":"## Compliance with standards and regulations\nCheck that the code adheres to  relevant security standards s such as OWASP or NIST or HIPAA or PCI DSS","x":2751,"y":-920,"width":480,"height":286},
+		{"id":"4812d2c90e377da5","type":"text","text":"## Third-party libraries and components: \nensure that they are up-to-date, secure, and used appropriately","x":2573,"y":-459,"width":658,"height":139},
+		{"id":"7083c8125496cc69","type":"text","text":"## Cryptography\nVerify that cryptographic functions are used correctly and that sensitive data is protected during storage and transmission.","x":2902,"y":-280,"width":564,"height":215},
+		{"id":"2b88a6915ee89556","type":"text","text":"## Input Validation\n all input data is validated properly to prevent malicious input from causing unintended behavior.","x":1463,"y":16,"width":357,"height":300},
+		{"id":"ec7ded0e0d4b64e5","type":"text","text":"## Session management \n-  to prevent session hijacking or fixation attacks\n-  in NodeJS, ==express-session== can be used as a secure session management middleware","x":1880,"y":38,"width":440,"height":278},
+		{"id":"629838bfd8fea137","type":"text","text":"## Error handling and logging:\nEnsure that error messages are not overly informative, that sensitive information is not logged, and that errors are handled securely","x":2338,"y":282,"width":471,"height":243}
+	],
+	"edges":[
+		{"id":"e32b99ed08abf0bc","fromNode":"1a1e22ed30d766ef","fromSide":"bottom","toNode":"07673df36d76223c","toSide":"top"},
+		{"id":"9c4e7790b4ce8bd4","fromNode":"1a1e22ed30d766ef","fromSide":"bottom","toNode":"65e934ce703d65f9","toSide":"top"},
+		{"id":"babb43d0c8d9daaa","fromNode":"1a1e22ed30d766ef","fromSide":"bottom","toNode":"8eed00b5f4fac421","toSide":"top"},
+		{"id":"d4028a368fc51b4b","fromNode":"1a1e22ed30d766ef","fromSide":"bottom","toNode":"c27b6664cb320fdc","toSide":"top"},
+		{"id":"35ab935d6c8598a6","fromNode":"1a1e22ed30d766ef","fromSide":"bottom","toNode":"5b691609320ef5fc","toSide":"top"},
+		{"id":"04dd1e560ebe1ba2","fromNode":"5b691609320ef5fc","fromSide":"bottom","toNode":"2b88a6915ee89556","toSide":"top"},
+		{"id":"f020575f4061943a","fromNode":"5b691609320ef5fc","fromSide":"bottom","toNode":"048a127cd610af04","toSide":"top"},
+		{"id":"17a38b6901e4c5f3","fromNode":"5b691609320ef5fc","fromSide":"bottom","toNode":"ec7ded0e0d4b64e5","toSide":"top"},
+		{"id":"b94964aec5040b47","fromNode":"5b691609320ef5fc","fromSide":"bottom","toNode":"629838bfd8fea137","toSide":"top"},
+		{"id":"7222d8a7753c7319","fromNode":"5b691609320ef5fc","fromSide":"top","toNode":"b27a3712c69e21d2","toSide":"bottom"},
+		{"id":"0e021586aae07bc3","fromNode":"5b691609320ef5fc","fromSide":"top","toNode":"fa79dc7bea9cf9fd","toSide":"bottom"},
+		{"id":"392e29ac7babb368","fromNode":"5b691609320ef5fc","fromSide":"right","toNode":"4812d2c90e377da5","toSide":"left"},
+		{"id":"2f6f08335186fba3","fromNode":"5b691609320ef5fc","fromSide":"top","toNode":"9ea2239d5a2b5c34","toSide":"bottom"},
+		{"id":"ec831729d0367ca1","fromNode":"5b691609320ef5fc","fromSide":"bottom","toNode":"7083c8125496cc69","toSide":"left"}
+	]
+}
